@@ -1,0 +1,16 @@
+version: 0.2
+
+phases:
+  pre_build:
+    commands:
+      - echo Logging in to Amazon ECR...
+      - aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin 812835203215.dkr.ecr.us-east-1.amazonaws.com
+  build:
+    commands:
+      - echo Building the Docker image...
+      - docker build -t dummy-api .
+      - docker tag dummy-api:latest 812835203215.dkr.ecr.us-east-1.amazonaws.com/dummy-api:latest
+  post_build:
+    commands:
+      - echo Pushing the Docker image...
+      - docker push 812835203215.dkr.ecr.us-east-1.amazonaws.com/dummy-api:latest
