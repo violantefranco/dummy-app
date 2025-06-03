@@ -10,6 +10,10 @@ app.get('/', (req, res) => {
   res.send('Hello from dummy app!');
 });
 
+app.get('/test', (req, res) => {
+  res.send('Hello from dummy app!');
+});
+
 app.listen(port, () => {
   console.log(`Dummy app listening on port ${port}`);
 });
