@@ -9,8 +9,8 @@ phases:
     commands:
       - echo Building the Docker image...
       - docker build -t dummy-api .
-      - docker tag dummy-api:latest 812835203215.dkr.ecr.us-east-1.amazonaws.com/dummy-api:latest
+      - docker tag dummy-api:latest 812835203215.dkr.ecr.us-east-1.amazonaws.com/ecr-repository:latest
   post_build:
     commands:
       - echo Pushing the Docker image...
-      - docker push 812835203215.dkr.ecr.us-east-1.amazonaws.com/ecr-repository
+      - docker push 812835203215.dkr.ecr.us-east-1.amazonaws.com/ecr-repository:latest
